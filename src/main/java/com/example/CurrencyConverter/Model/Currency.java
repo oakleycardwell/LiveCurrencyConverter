@@ -16,9 +16,4 @@ public class Currency {
     private int id;
     private String symbol;
     private double rate;
-
-    public Currency(String symbol, double rate) {
-        this.symbol = symbol;
-        this.rate = rate;
-    }
 }
