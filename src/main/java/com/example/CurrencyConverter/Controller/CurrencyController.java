@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//import static com.example.CurrencyConverter.Controller.IDGenerator.generateID;
+
 
 @RestController
 public class CurrencyController {
@@ -17,7 +17,6 @@ public class CurrencyController {
 
     @PostMapping("/addCurrency")
     public String saveCurrency(@RequestBody Currency currency){
-        //currency.setId(generateID(currency.getSymbol()));
         repository.save(currency);
 
         return "Currency added successfully";
@@ -30,7 +29,7 @@ public class CurrencyController {
 
     /*@GetMapping("/getRate/{symbol}")
     public double getRate(@PathVariable String symbol){
-        return repository.findById(generateID(symbol)).get().getRate();
+        return repository.findById();
     }*/
 
     @DeleteMapping("/delete/{id}")
