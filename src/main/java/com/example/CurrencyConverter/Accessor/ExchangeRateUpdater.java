@@ -1,5 +1,12 @@
 package com.example.CurrencyConverter.Accessor;
 
+import com.example.CurrencyConverter.UI.MainFrame;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.util.Map;
+
 public class ExchangeRateUpdater {
     public static void main(String[] args){
         /** CODE TO MAKE GET REQUEST OF DATA **/
@@ -16,6 +23,24 @@ public class ExchangeRateUpdater {
 		}catch(IOException e){
 			e.printStackTrace();
 		}*/
+        try {
+            Object object = new JSONParser().parse("{\n" +
+                    "         \"success\": true,\n" +
+                    "         \"timestamp\": 1657740063,\n" +
+                    "         \"base\": \"USD\",\n" +
+                    "         \"date\": \"2022-07-13\",\n" +
+                    "         \"rates\": {\n" +
+                    "         \"JPY\": 137.320994\n" +
+                    "         }\n" +
+                    "         }");
+
+            JSONObject json = (JSONObject) object;
+            Map rates = (Map) json.get("rates"); //TODO stream map of rates into Currency objects and post them to the database
+        } catch (ParseException e) {
+            System.out.println("Failed to parse JSON file when updating database.");
+            e.printStackTrace();
+        }
+
         /** RESULTING JSON OBJECT
          {
          "success": true,

@@ -1,10 +1,10 @@
-package com.example.CurrencyConverter.Configuration;
+package com.example.CurrencyConverter;
 
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication()
 public class SpringStarter {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringStarter.class, args);
