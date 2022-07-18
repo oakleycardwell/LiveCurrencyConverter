@@ -1,14 +1,20 @@
 package com.example.CurrencyConverter.Accessor;
 
 import com.example.CurrencyConverter.UI.MainFrame;
+import okhttp3.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 public class ExchangeRateUpdater {
     public static void main(String[] args){
+
         /** CODE TO MAKE GET REQUEST OF DATA **/
 		/*try{
 			OkHttpClient client = new OkHttpClient().newBuilder().build();
@@ -35,7 +41,10 @@ public class ExchangeRateUpdater {
                     "         }");
 
             JSONObject json = (JSONObject) object;
-            Map rates = (Map) json.get("rates"); //TODO stream map of rates into Currency objects and post them to the database
+            Map<String,Double> rates = (HashMap) json.get("rates");
+
+            //TODO stream map of rates into Currency objects and post them to the database
+
         } catch (ParseException e) {
             System.out.println("Failed to parse JSON file when updating database.");
             e.printStackTrace();
