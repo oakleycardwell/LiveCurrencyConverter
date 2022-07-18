@@ -1,5 +1,5 @@
 TODO
 - Parse JSON value
-- Regularly update database values
+- UI pulls from database values
 - Implement last updated watermark
 - Add more currencies
